@@ -1,0 +1,161 @@
+.navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+}
+.navbar{
+    background-color: #225470;
+}
+
+.custom-nav .custom-nav-item a {
+    color: #fff !important;
+}
+
+.custom-nav-item:hover {
+    background-color: #dc3545;
+    border: solid #dc3545 1px;
+    border-radius: 10px;
+}
+
+.remove-vid-marg {
+    margin: 0;
+    padding: 0;
+}
+
+.vid-parrent {
+    position: relative;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+.vid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #225470;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.vid-content {
+    position: absolute;
+    z-index: 2;
+    top: 35%;
+    left: 35%;
+    text-align: center;
+    color: #fff;
+}
+
+.btn_dan {
+    margin-top: 10px;
+}
+
+.bottom-banner {
+    color: #fff;
+    padding: 10px;
+
+}
+.address_text{
+    background-image:linear-gradient(240deg,#ed213a,#93291e);
+    padding: 3rem;
+    height: 16rem;
+    margin-top: 4rem;
+    transform: rotate(10deg);
+    z-index:-5;
+}
+
+a.social-hover:hover{
+    padding:5px 100px;
+    text-decoration: none;
+    background-color: rgb(95,93,93);
+}
+.banner_border{
+    border:2px solid rgba(232, 69, 69,.5);
+}
+
+
+
+
+
+
+
+
+
+
+/* Testimonial  CSS */
+
+.testimonial-section {
+    /* width: 800px; */
+    text-align: center;
+    background-color: #2c3f73;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    color: white;
+
+  }
+  
+  .testimonial-section h1 {
+    /* font-size: 25px; */
+    margin-bottom: 30px;
+  }
+  
+  .testimonial-pic img {
+    width: 100px;
+    filter: grayscale(1);
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .testimonial-pic img.active {
+    filter: grayscale(0);
+    border-radius: 50%;
+  }
+  
+  .testimonial .content {
+    display: none;
+  }
+  
+  .testimonial .content.active {
+    display: block;
+  }
+  
+  .testimonial .content p:nth-child(2) {
+    font-weight: bold;
+  }
+
+
+
+
+@media screen and (min-width:0px) and (max-width:700px) {
+
+    .my-content,
+    .txt-banner,
+    .address_text {
+        display: none;
+    }
+
+    .vid-content {
+        top: 12%;
+        left: 60%;
+    }
+
+    .custom-nav .custom-nav-item a {
+        padding: 10px 20px;
+        background-color: #225470;
+    }
+
+    .custom-nav-item:hover {
+        background-color: none;
+        border: none;
+        border-radius: none;
+    }
+  
+}
