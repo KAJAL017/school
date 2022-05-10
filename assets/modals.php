@@ -38,7 +38,7 @@
                 </div>
                 <div class="modal-footer">
                     <span id="success_msg"></span>
-                    <button type="button" class="btn btn-primary" onclick="addStu()">Signup</button>
+                    <button type="button" class="btn btn-primary" onclick="addStu()" id="signup_btn">Signup</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>

@@ -1,3 +1,42 @@
+$(document).ready(function () {
+    // Already Exists Email Validation
+
+    $("#email").on("keypress blur", function () {
+        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        var Stu_email = $("#email").val();
+        $.ajax({
+            url: 'student/addstudent.php',
+            type: "POST",
+            data: {
+                checkmail: "checkmail",
+                email: Stu_email,
+            },
+            success: function (data) {
+            
+                if (data != 0) {
+                    $(".statusMsg2").html("<small style='color:red;margin-left:2%'>Email Address Already Taken</small>");
+                    $("#signup_btn").attr("disabled", true);
+
+                }
+                // else if(data == 0 ){
+                //     $(".statusMsg2").html("<small style='color:green;margin-left:2%'>There We go</small>");
+                //     $("#signup_btn").attr("disabled", false);
+                // }
+              else if(data ==""){
+                $(".statusMsg2").html("<small style='red:green;margin-left:2%'>Enter Email</small>");
+                $("#signup_btn").attr("disabled", false);
+              }
+                
+            }
+            
+        })
+    })
+})
+
+
+
+
+
 function addStu() {
     var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
     var uname = $("#uname").val()
@@ -6,61 +45,58 @@ function addStu() {
 
     // Form Validation on submission
 
-    if(uname.trim() ==""){
+    if (uname.trim() == "") {
         $(".statusMsg1").html("<small style='color:red;margin-left:2%'>Please Enter Your Name</small>");
         $("#uname").focus();
         return false;
-    }
-    else if(email.trim() ==""){
+    } else if (email.trim() == "") {
         $(".statusMsg2").html("<small style='color:red;margin-left:2%'>Please Enter Your Email</small>");
         $("#email").focus();
         return false;
-    }
-    else if(email.trim() !="" && !reg.test(email) ){
+    } else if (email.trim() != "" && !reg.test(email)) {
         $(".statusMsg2").html("<small style='color:red;margin-left:2%'>Please Enter Valid Email</small>");
         $("#email").focus();
         return false;
-    }
-    else if(upass.trim() ==""){
+    } else if (upass.trim() == "") {
         $(".statusMsg3").html("<small style='color:red;margin-left:2%'>Please Enter Your Password</small>");
         $("#upass").focus();
         return false;
-    }
-    else{
+    } else {
 
         $.ajax({
             url: 'student/addstudent.php',
-            dataType:"json",
+            dataType: "json",
             method: 'POST',
             data: {
-                stusignup : "signup",
+                stusignup: "signup",
                 Stuname: uname,
                 Stuemail: email,
                 Stupass: upass,
             },
             success: function (data) {
                 console.log(data);
-                if(data == "OK"){
+                if (data == "OK") {
                     $("#success_msg").html("<span class='alert alert-success'>Registration Successful</span>");
                     emptyFields();
-                }
-                else if(data =="Failed"){
+                } else if (data == "Failed") {
                     $("#success_msg").html("<span class='alert alert-success>Registration Unsuccessful</span>");
                 }
             }
         })
     }
 
-    
+
 
 
 }
 
 // Empty Fields
 
-function emptyFields(){
-$(".RegModal").trigger("reset");
-$(".statusMsg1").html("");
-$(".statusMsg2").html("");
-$(".statusMsg2").html("");
+function emptyFields() {
+    $(".RegModal").trigger("reset");
+    $(".statusMsg1").html("");
+    $(".statusMsg2").html("");
+    $(".statusMsg2").html("");
+
+
 }
