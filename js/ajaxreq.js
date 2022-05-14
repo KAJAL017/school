@@ -12,23 +12,23 @@ $(document).ready(function () {
                 email: Stu_email,
             },
             success: function (data) {
-            
+
                 if (data != 0) {
-                    $(".statusMsg2").html("<small style='color:red;margin-left:2%'>Email Address Already Taken</small>");
+                    $(".statusMsg5").html("<small style='color:red;margin-left:2%'>Email Address Already Taken</small>");
                     $("#signup_btn").attr("disabled", true);
 
                 }
-                // else if(data == 0 ){
-                //     $(".statusMsg2").html("<small style='color:green;margin-left:2%'>There We go</small>");
-                //     $("#signup_btn").attr("disabled", false);
-                // }
-              else if(data ==""){
-                $(".statusMsg2").html("<small style='red:green;margin-left:2%'>Enter Email</small>");
-                $("#signup_btn").attr("disabled", false);
-              }
-                
+                else if(data == 0 ){
+                    $(".statusMsg2").html("<small style='color:green;margin-left:2%'>There We go</small>");
+                    $("#signup_btn").attr("disabled", false);
+                }
+                else if (data == "") {
+                    $(".statusMsg2").html("<small style='red:green;margin-left:2%'>Enter Email</small>");
+                    $("#signup_btn").attr("disabled", false);
+                }
+
             }
-            
+
         })
     })
 })
@@ -39,9 +39,9 @@ $(document).ready(function () {
 
 function addStu() {
     var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-    var uname = $("#uname").val()
-    var email = $("#email").val()
-    var upass = $("#upass").val()
+    var uname = $("#uname").val();
+    var email = $("#email").val();
+    var upass = $("#upass").val();
 
     // Form Validation on submission
 
@@ -96,7 +96,32 @@ function emptyFields() {
     $(".RegModal").trigger("reset");
     $(".statusMsg1").html("");
     $(".statusMsg2").html("");
-    $(".statusMsg2").html("");
+    $(".statusMsg3").html("");
+   
+}
+// Student Login In Ajax 
 
-
+function SignIn_btn() {
+    var Stu_email = $("#Login_email").val();
+    var Stu_pass = $("#Login_pass").val();
+    $.ajax({
+        url: 'student/addstudent.php',
+        type: "POST",
+        data: {
+            checkLogmail:"checkLogmail",
+            Log_email :Stu_email,
+            Log_pass :Stu_pass,
+        },
+        success:function(data){
+         if(data == 0){
+             $("#statuslog").html("<small class='alert alert-danger '>Envalid Email and Password</small>");
+         }else if(data == 1 ){
+            $("#statuslog").html("<small class='spinner-border text-success' role='status' ></small>");
+            setTimeout(()=>{
+                window.location.href="index.php";
+            },1000)
+         };
+         
+        }
+    })
 }

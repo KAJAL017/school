@@ -1,3 +1,5 @@
+
+
 <!-- Header -->
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +27,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
+
 <body>
 
     <!-- Start Navigation  -->
@@ -39,14 +42,27 @@
             <ul class="navbar-nav custom-nav pl-5">
                 <li class="nav-item custom-nav-item"><a href="index.php" class="nav-link ">Home</a></li>
                 <li class="nav-item custom-nav-item"><a href="course.php" class="nav-link">Courses</a></li>
-                <li class="nav-item custom-nav-item"><a href="PaymentStatus.php" class="nav-link">Payment Status</a></li>
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link">My Profile</a></li>
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link">Logout</a></li>
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link" data-toggle="modal"
-                        data-target="#LoginModal">Login</a></li>
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link" data-toggle="modal"
-                        data-target="#RegModal">Signup</a></li>
-                <li class="nav-item custom-nav-item"><a href="#" class="nav-link">Feedback</a></li>
+                <li class="nav-item custom-nav-item"><a href="PaymentStatus.php" class="nav-link">Payment Status</a>
+                </li>
+                <?php
+                session_start();
+                if(isset($_SESSION['is_Login'])){
+                    
+                    echo '<li class="nav-item custom-nav-item"><a href="#" class="nav-link">My Profile</a></li>
+                    <li class="nav-item custom-nav-item"><a href="logout.php" class="nav-link">Logout</a></li>';
+                }
+                else{
+                 
+                    echo ' <li class="nav-item custom-nav-item"><a href="#" class="nav-link" data-toggle="modal"
+                    data-target="#LoginModal">Login</a></li>
+                   <li class="nav-item custom-nav-item"><a href="#" class="nav-link" data-toggle="modal"
+                    data-target="#RegModal">Signup</a></li>';
+                };
+                
+                ?>
+
+
+                <li class="nav-item custom-nav-item"><a href="assets/testimonial.php" class="nav-link">Feedback</a></li>
                 <li class="nav-item custom-nav-item"><a href="#" class="nav-link">Contact</a></li>
             </ul>
         </div>

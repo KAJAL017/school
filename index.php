@@ -15,8 +15,16 @@
         <h1 class="my-content">Welcome To Siliguri Collage</h1>
         <small class="my-content">Learn And Implement</small><br>
         <!-- Modal Button -->
-        <div class="btn-dan "> <a href="" class="btn btn-danger btn_dan" data-toggle="modal" data-target="#RegModal">Get
-                Started </a></div>
+    <?php
+    if(!isset($_SESSION['is_Login'])){
+        echo '<a href="" class="btn btn-danger btn_dan mt-3" data-toggle="modal" data-target="#RegModal">Get Started </a>';
+       
+    } else{
+        echo '<button class="btn btn-primary mt-3">My Profile</button>';
+    }
+    
+    
+    ?>
     </div>
 </div>
 

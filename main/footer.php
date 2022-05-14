@@ -21,3 +21,5 @@
 
 <!-- Student Ajaxreq JS -->
 <script src="js/ajaxreq.js" type="text/javascript"></script>
+<!-- admin Ajaxreq JS -->
+<script src="js/adminAjax.js" type="text/javascript"></script>

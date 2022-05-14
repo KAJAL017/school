@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!-- Start Student Registration Modal -->
     <!-- Modal -->
     <div class="modal fade" id="RegModal" tabindex="-1" aria-labelledby="RegModalLabel " aria-hidden="true">
@@ -21,7 +25,7 @@
                         <div class="form-group">
                             <label for="email"><i class="fas fa-envelope"></i></label>
                             <label for="email" class=" pl-2">Email address</label>
-                            <small class="statusMsg2"></small>
+                            <small class="statusMsg5"></small>
                             <input type="email" class="form-control" id="email" name="email"
                                 aria-describedby="emailHelp" placeholder="Enter Your Email">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
@@ -48,7 +52,7 @@
 
     <!-- Start Student login Modal -->
     <!-- Modal -->
-    <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel " aria-hidden="true">
+    <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel " aria-hidden="true" class="RegModal">
         <div class="modal-dialog modal-dialog-centered " style="padding-bottom: 22px;">
             <div class="modal-content">
                 <div class="modal-header">
@@ -59,11 +63,12 @@
                 </div>
                 <div class="modal-body" style="font-weight:bold;">
                     <!-- Student Form Modal -->
+                  
                     <form class="LoginModal">
                         <div class="form-group">
                             <label for="login_email"><i class="fas fa-envelope"></i></label>
                             <label for="login_email" class=" pl-2">Email address</label>
-                            <input type="email" class="form-control" id="login_email" name="login_email"
+                            <input type="email" class="form-control" id="Login_email" name="login_email"
                                 aria-describedby="emailHelp" placeholder="Enter Your Email">
                         </div>
                         <div class="form-group">
@@ -71,11 +76,13 @@
                             <label for="Login_pass" class=" pl-2">Password</label>
                             <input type="password" class="form-control" id="Login_pass" name="Login_pass"
                                 placeholder="Enter Your Password">
+                               
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Signin</button>
+                <small id="statuslog"></small>
+                    <button type="button" class="btn btn-primary" id="SignIn_btn" onclick="SignIn_btn()">Signin</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -96,7 +103,7 @@
                     </button>
                 </div>
                 <div class="modal-body" style="font-weight:bold;">
-                    <!-- Student Form Modal -->
+                    <!-- admin Form Modal -->
                     <form class="AdminModal">
                         <div class="form-group">
                             <label for="login_email"><i class="fas fa-envelope"></i></label>
@@ -112,8 +119,10 @@
                         </div>
                     </form>
                 </div>
+              
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Signin</button>
+                <small id="adminSlog"></small>
+                    <button type="button" class="btn btn-primary" onclick="admin_login()">Signin</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
